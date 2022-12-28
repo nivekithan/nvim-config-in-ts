@@ -6,7 +6,8 @@
   "scripts": {
     "build": "tstl",
     "watch": "tstl --watch",
-    "source": "pnpm run build && node ./scripts/copy.js"
+    "source": "pnpm run build && pnpm run replace && node ./scripts/copy.js",
+    "replace" : "node ./scripts/replace.js"
   },
   "keywords": [],
   "author": "",
@@ -16,6 +17,7 @@
     "copy-dir": "^1.3.0",
     "copyfiles": "^2.4.1",
     "lua-types": "^2.13.1",
+    "replace": "^1.2.2",
     "typescript": "^4.9.4",
     "typescript-to-lua": "^1.11.1"
   }
