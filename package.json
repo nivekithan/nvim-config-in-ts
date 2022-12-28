@@ -1,0 +1,18 @@
+{
+  "name": "nvim-in-ts",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "tstl",
+    "watch": "tstl --watch"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "lua-types": "^2.13.1",
+    "typescript": "^4.9.4",
+    "typescript-to-lua": "^1.11.1"
+  }
+}
