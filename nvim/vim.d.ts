@@ -100,7 +100,7 @@ declare namespace vim {
      *
      * {@label smartident}
      */
-    smartident: boolean;
+    smartindent: boolean;
 
     /**
      * This option changes how text is displayed. It doesn't change the text in the buffer,
