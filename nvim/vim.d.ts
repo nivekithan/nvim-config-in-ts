@@ -278,4 +278,7 @@ declare namespace vim {
   };
 
   export const lsp: VimLsp;
+
+  /** @noSelf */
+  export const cmd: (cmd: string) => void;
 }

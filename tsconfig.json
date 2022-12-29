@@ -8,7 +8,6 @@
     "types": ["lua-types/5.1" ],
     "strict": true,
     "outDir": "dist",
-    "rootDir": "nvim"
   },
   "tstl": {
     "luaTarget": "5.1"
