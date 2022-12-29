@@ -1,8 +1,8 @@
 import { cmd } from "./cmd";
+import { LEADER } from "./constants";
 
 vim.g.mapleader = "<space>";
 
-const LEADER = "<space>";
 const NOP = "<nop>";
 
 vim.keymap.set("n", "s", NOP);
