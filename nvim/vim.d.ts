@@ -1,3 +1,4 @@
+/** @noSelfInFile */
 declare namespace vim {
   interface VimOptions {
     /**
@@ -253,6 +254,8 @@ declare namespace vim {
      * {@label laststatus}
      */
     laststatus: 0 | 1 | 2 | 3;
+
+    shell: string;
   }
   export const opt: VimOptions;
 
@@ -263,12 +266,13 @@ declare namespace vim {
     | "t"; // Terminal Mode
 
   export const keymap: {
-    set: (
+    /** @noSelf */
+    set(
       mode: VimMode | VimMode[],
       key: string,
       fn: string | (() => void),
-      opts: { desc: string }
-    ) => void;
+      opts?: { desc: string }
+    ): void;
   };
 
   type VimLsp = {
@@ -281,4 +285,10 @@ declare namespace vim {
 
   /** @noSelf */
   export const cmd: (cmd: string) => void;
+
+  type VimVariables = {
+    mapleader: string;
+  };
+
+  export const g: VimVariables;
 }

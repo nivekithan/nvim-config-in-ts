@@ -3,4 +3,7 @@ export const cmd = {
   setColorScheme(colorScheme: string) {
     vim.cmd(`colorscheme ${colorScheme}`);
   },
+  openFileExplorer() {
+    vim.cmd("Ex");
+  },
 };

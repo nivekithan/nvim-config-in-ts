@@ -1,1 +1,1 @@
-require("./lua/niveth/init")
+import "./lua/niveth/init";
