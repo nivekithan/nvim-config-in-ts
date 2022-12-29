@@ -26,3 +26,5 @@ vim.opt.shell = "nu";
 
 vim.opt.timeoutlen = 1000;
 vim.opt.timeout = true;
+
+vim.opt.signcolumn = "yes";

@@ -291,4 +291,17 @@ declare namespace vim {
   };
 
   export const g: VimVariables;
+
+  type VimDiagnosticConfig = {
+    underline: boolean;
+    virtual_text: boolean;
+    signs: boolean;
+    float: boolean;
+    update_in_insert: boolean;
+    serverity_sort: boolean;
+  };
+  export const diagnostic: {
+    /** @noSelf */
+    config(config: Partial<VimDiagnosticConfig>): void;
+  };
 }

@@ -31,3 +31,4 @@ vim.keymap.set("n", `${LEADER}f`, vim.lsp.buf.format, { desc: "Format code" });
 vim.keymap.set("t", `<C-q>`, "<C-\\><C-n>", {
   desc: "Exit terminal mode",
 });
+
