@@ -8,7 +8,7 @@ vim.opt.expandtab = true;
 
 vim.opt.smartindent = true;
 
-vim.opt.wrap = true;
+vim.opt.wrap = false;
 
 vim.opt.swapfile = false;
 vim.opt.backup = false;
@@ -28,3 +28,7 @@ vim.opt.timeoutlen = 1000;
 vim.opt.timeout = true;
 
 vim.opt.signcolumn = "yes";
+
+vim.opt.wildignore = "*/node_modules/*"
+
+vim.opt.laststatus = 3; // Have global status line

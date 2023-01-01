@@ -1,4 +1,4 @@
-/** @noSelfInFile */
+/** @noSelfInFile @noSelfInFile */
 declare namespace vim {
   interface VimOptions {
     /**
@@ -256,6 +256,7 @@ declare namespace vim {
     laststatus: 0 | 1 | 2 | 3;
 
     shell: string;
+    wildignore: string;
   }
   export const opt: VimOptions;
 
@@ -265,19 +266,33 @@ declare namespace vim {
     | "v" // Visual Mode
     | "t"; // Terminal Mode
 
+  export type keymapOpts = {
+    desc: string;
+    buffer: number | boolean;
+  };
+
   export const keymap: {
     /** @noSelf */
     set(
       mode: VimMode | VimMode[],
       key: string,
       fn: string | (() => void),
-      opts?: { desc: string }
+      opts?: Partial<keymapOpts>
     ): void;
+  };
+
+  type LspFormatOptions = {
+    /** @noSelf */
+    filter(client: { name: string }): boolean;
+    timeout_ms: number;
   };
 
   type VimLsp = {
     buf: {
-      format: () => string;
+      /** @noSelf */
+      format(opts: Partial<LspFormatOptions>): void;
+
+      signature_help(): void;
     };
   };
 
@@ -304,4 +319,47 @@ declare namespace vim {
     /** @noSelf */
     config(config: Partial<VimDiagnosticConfig>): void;
   };
+
+  /** @noSelf */
+  export interface VimFunctions {
+    expand(arg: string): string;
+    bufadd(name: string): number;
+    fnamemodify(fileName : string, mods : string) : string;
+  }
+
+  export const fn: VimFunctions;
+
+  type BufOptionsWithValueType = {
+    buflisted: boolean;
+  };
+
+  /** @noSelf */
+  export interface VimApi {
+    nvim_create_buf(listed: boolean, scratch: boolean): number;
+    nvim_buf_get_name(bufnr: number): string;
+    nvim_set_current_buf(bufnr: number): void;
+    nvim_buf_set_option<Opt extends keyof BufOptionsWithValueType>(
+      bufnr: number,
+      optionName: Opt,
+      value: BufOptionsWithValueType[Opt]): void;
+  }
+  export const api: VimApi;
+
+  /** @noSelf */
+  export interface VimFs {
+    basename(file: string): string;
+    dirname(dirname: string): string;
+    normalize(path: string): string;
+  }
+
+  export const fs: VimFs;
+
+  /** @noSelf */
+  export interface VimLoop {
+    cwd(): string;
+  }
+
+  export const loop: VimLoop;
+
+  export function inspect(value : unknown) : void;
 }

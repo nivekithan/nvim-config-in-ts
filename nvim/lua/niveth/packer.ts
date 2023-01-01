@@ -10,6 +10,7 @@ startup((use) => {
   });
 
   use("Mofiqul/dracula.nvim");
+  use("folke/tokyonight.nvim");
 
   use({ 1: "nvim-treesitter/nvim-treesitter" });
 
@@ -25,14 +26,20 @@ startup((use) => {
       "saadparwaiz1/cmp_luasnip",
       "hrsh7th/cmp-nvim-lsp",
       "hrsh7th/cmp-nvim-lua",
-      "L3MON4D3/LuaSnip",
-      "rafamadriz/friendly-snippets",
     ],
+  });
+
+  use({
+    1: "jose-elias-alvarez/null-ls.nvim",
+    requires: ["nvim-lua/plenary.nvim"],
   });
 
   use({
     1: "nvim-lualine/lualine.nvim",
     requires: ["kyazdani42/nvim-web-devicons"],
   });
-});
 
+  use("nvim-treesitter/playground");
+
+  use("ThePrimeagen/harpoon");
+});
